@@ -56,13 +56,28 @@ public class SinglyLinkedList {
 
     // Method to delete an element by index (Delete)
     public void delete(int index) {
+        if(index < 0 || index > size()){
+            System.out.println("Index Invalido");
+            return;
+        }
+        if(index == 0){
+            head = head.next;
+        }
+        Node current = head;
+        for(int i = 0; i<index-1;i++){
+            current = current.next;
+        }
+        current.next = current.next.next;
 
-        // write your solution here
     }
 
     // Method to get the size of the list
     public int size() {
-        // write your solution here
-        return 0;
+        Node current = head;
+        int cont = 0;
+        while(current.next !=null){
+            cont+=1;
+        }
+        return cont;
     }
 }
